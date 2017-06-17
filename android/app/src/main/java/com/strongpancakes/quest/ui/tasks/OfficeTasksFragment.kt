@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.strongpancakes.quest.R
 import com.strongpancakes.quest.data.tasks.OfficeTask
-import com.strongpancakes.quest.service.MockupData
+import com.strongpancakes.quest.service.DataSource
 import com.strongpancakes.quest.ui.tasks.adapters.OfficeTaskAdapter
 import com.strongpancakes.quest.utils.RxUtil
 import io.reactivex.disposables.Disposable
@@ -44,7 +44,7 @@ class OfficeTasksFragment : Fragment() {
     }
 
     private fun getOfficeTasks() {
-        disposable = MockupData.getOfficeTasks()
+        disposable = DataSource.instance.getOfficeTasks()
                 .compose(RxUtil.applySchedulers())
                 .subscribe {
                     tasks: List<OfficeTask>? ->
