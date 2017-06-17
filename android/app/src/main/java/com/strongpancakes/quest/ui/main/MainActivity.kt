@@ -7,7 +7,7 @@ import com.strongpancakes.quest.R
 import com.strongpancakes.quest.R.id.*
 import com.strongpancakes.quest.ui.career.position.CareerListFragment
 import com.strongpancakes.quest.ui.profile.ProfileFragment
-import com.strongpancakes.quest.ui.tasks.TaskListFragment
+import com.strongpancakes.quest.ui.tasks.TasksFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         bottomNavigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 actionEvents -> startFragment(DashboardFragment())
-                actionTasks -> startFragment(TaskListFragment())
+                actionTasks -> startFragment(TasksFragment())
                 actionCareer -> startFragment(CareerListFragment())
                 actionProfile -> startFragment(ProfileFragment())
                 else -> {
