@@ -5,19 +5,19 @@
         android:id="@+id/actionEvents"
         android:checked="true"
         android:enabled="true"
-        android:icon="@drawable/ic_account_circle_white_24dp"
-        android:title="Приключения"
+        android:icon="@drawable/fa_home"
+        android:title="Главная"
         app:showAsAction="always"/>
     <item
         android:id="@+id/actionTasks"
         android:enabled="true"
-        android:icon="@drawable/ic_account_circle_white_24dp"
+        android:icon="@drawable/fa_calendar"
         android:title="Задания"
         app:showAsAction="always"/>
     <item
         android:id="@+id/actionCareer"
         android:enabled="true"
-        android:icon="@drawable/ic_account_circle_white_24dp"
+        android:icon="@drawable/fa_briefcase"
         android:title="Карьера"
         app:showAsAction="always"/>
 </menu>

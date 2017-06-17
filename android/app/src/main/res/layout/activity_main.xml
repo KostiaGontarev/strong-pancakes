@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
+                android:background="#f2f2f2"
                 android:layout_height="match_parent">
 
     <RelativeLayout
@@ -13,7 +14,10 @@
         <TextView android:id="@+id/screenTitle"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
-                  android:layout_centerInParent="true"
+                  android:layout_marginStart="10dp"
+                  android:layout_centerVertical="true"
+                  android:text="OfficeMe!"
+                  android:textStyle="bold"
                   android:textColor="@android:color/white"
                   android:textSize="20sp"/>
 
@@ -29,7 +33,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:background="?android:attr/selectableItemBackground"
-            android:padding="10dp"
+            android:padding="12dp"
             android:src="@drawable/ic_account_circle_white_24dp"/>
 
     </RelativeLayout>
@@ -46,9 +50,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:itemBackground="@color/colorPrimary"
-        app:itemIconTint="@android:color/white"
-        app:itemTextColor="@android:color/white"
+        app:elevation="10dp"
+        app:itemBackground="@android:color/white"
         app:menu="@menu/bottom_navigation_main"/>
 
 </RelativeLayout>

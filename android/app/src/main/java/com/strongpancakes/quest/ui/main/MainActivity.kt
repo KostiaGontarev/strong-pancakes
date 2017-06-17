@@ -23,19 +23,19 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        startFragment(DashboardFragment(), "Приключения")
+        startFragment(DashboardFragment())
         bottomNavigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
-                actionEvents -> startFragment(DashboardFragment(), it.title.toString())
-                actionTasks -> startFragment(TasksFragment(), it.title.toString())
-                actionCareer -> startFragment(CareerListFragment(), it.title.toString())
+                actionEvents -> startFragment(DashboardFragment())
+                actionTasks -> startFragment(TasksFragment())
+                actionCareer -> startFragment(CareerListFragment())
                 else -> {
                     false
                 }
             }
             true
         }
-        openProfile.setOnClickListener { startFragment(ProfileFragment(), "Профиль") }
+        openProfile.setOnClickListener { startFragment(ProfileFragment()) }
         getProfileData()
     }
 
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         super.onStop()
     }
 
-    fun startFragment(fragment: Fragment, title: String) {
+    fun startFragment(fragment: Fragment) {
         var fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
         if (fragmentManager.backStackEntryCount > 0) {
             fragmentManager.popBackStackImmediate()
@@ -54,7 +54,6 @@ class MainActivity : AppCompatActivity() {
             fragmentTransaction.replace(R.id.fragmentContainer, fragment)
         }
         fragmentTransaction.commit()
-        screenTitle.text = title
     }
 
     fun getProfileData() {
