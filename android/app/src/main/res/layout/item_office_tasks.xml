@@ -6,7 +6,7 @@
               android:padding="5dp">
 
     <ImageView
-        android:id="@+id/positionIcon"
+        android:id="@+id/taskIcon"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="center_vertical"
@@ -18,12 +18,12 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/positionTitle"
+            android:id="@+id/taskTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <TextView
-            android:id="@+id/positionDesc"
+            android:id="@+id/taskDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
