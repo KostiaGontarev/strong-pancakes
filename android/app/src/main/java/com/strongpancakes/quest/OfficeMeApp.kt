@@ -14,10 +14,10 @@ class OfficeMeApp : Application() {
         private set
     }
 
-    lateinit var mAuth: FirebaseAuth
+    lateinit var auth: FirebaseAuth
 
     val hasUser: Boolean
-    get() = mAuth.currentUser!= null
+    get() = auth.currentUser!= null
 
     override fun onCreate() {
         super.onCreate()
@@ -26,6 +26,6 @@ class OfficeMeApp : Application() {
     }
 
     private fun initSDK() {
-        mAuth = FirebaseAuth.getInstance()
+        auth = FirebaseAuth.getInstance()
     }
 }
