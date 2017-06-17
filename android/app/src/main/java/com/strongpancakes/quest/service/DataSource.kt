@@ -14,3 +14,7 @@ interface DataSource {
 
     fun getAchievements(): Observable<Achievement>
 }
+
+fun DataSource.getInstance(): DataSource {
+    return MockupData
+}
