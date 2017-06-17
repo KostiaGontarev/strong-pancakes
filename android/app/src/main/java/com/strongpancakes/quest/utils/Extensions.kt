@@ -1,6 +1,7 @@
 package com.strongpancakes.quest.utils
 
 import android.app.Activity
+import android.app.Fragment
 import android.content.Intent
 import android.view.View
 import android.view.ViewGroup
@@ -28,6 +29,14 @@ fun Activity.showProgress() {
 
 fun Activity.hideProgress() {
     getProgressView()?.visibility = View.INVISIBLE
+}
+
+fun Fragment.hideProgress() {
+    activity?.getProgressView()?.visibility = View.INVISIBLE
+}
+
+fun Fragment.showProgress() {
+    activity?.showProgress()
 }
 
 fun Activity.getProgressView(): View? {

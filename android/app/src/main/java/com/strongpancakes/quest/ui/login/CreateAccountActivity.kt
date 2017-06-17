@@ -10,6 +10,8 @@ import com.jakewharton.rxbinding2.widget.RxTextView
 import com.strongpancakes.quest.OfficeMeApp
 import com.strongpancakes.quest.R
 import com.strongpancakes.quest.ui.main.MainActivity
+import com.strongpancakes.quest.utils.hideProgress
+import com.strongpancakes.quest.utils.showProgress
 import com.strongpancakes.quest.utils.start
 import io.reactivex.Observable
 import io.reactivex.functions.BiFunction
@@ -45,11 +47,14 @@ class CreateAccountActivity : AppCompatActivity() {
 
     fun signup() {
         val auth = OfficeMeApp.instance.auth
-
+        showProgress()
         auth.createUserWithEmailAndPassword(emailField.text.toString(), passwordField.text.toString())
                 .continueWith {
                     if (it.isSuccessful) startMain()
-                    else Snackbar.make(findViewById(android.R.id.content), it.exception.toString(), Snackbar.LENGTH_LONG).show()
+                    else {
+                        hideProgress()
+                        Snackbar.make(findViewById(android.R.id.content), it.exception.toString(), Snackbar.LENGTH_LONG).show()
+                    }
                 }
     }
 
@@ -57,6 +62,7 @@ class CreateAccountActivity : AppCompatActivity() {
         val auth = OfficeMeApp.instance.auth
         auth.signInWithEmailAndPassword(emailField.text.toString(), passwordField.text.toString())
                 .continueWith {
+                    hideProgress()
                     if (it.isSuccessful) start(MainActivity::class.java, Intent.FLAG_ACTIVITY_CLEAR_TOP)
                     else {
                         Snackbar.make(findViewById(android.R.id.content), it.exception.toString(), Snackbar.LENGTH_LONG).show()

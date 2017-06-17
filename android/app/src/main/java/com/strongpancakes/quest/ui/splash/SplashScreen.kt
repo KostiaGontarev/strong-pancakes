@@ -7,8 +7,6 @@ import com.strongpancakes.quest.R
 import com.strongpancakes.quest.ui.login.LoginActivity
 import com.strongpancakes.quest.ui.main.MainActivity
 import com.strongpancakes.quest.utils.RxUtil
-import com.strongpancakes.quest.utils.hideProgress
-import com.strongpancakes.quest.utils.showProgress
 import com.strongpancakes.quest.utils.start
 import io.reactivex.Observable
 import java.util.concurrent.TimeUnit
@@ -24,12 +22,10 @@ class SplashScreen: AppCompatActivity() {
     }
 
     private fun startTimer() {
-        showProgress()
         Observable.just("")
                 .delay(2, TimeUnit.SECONDS)
                 .map { OfficeMeApp.instance.hasUser }
                 .compose(RxUtil.applySchedulers())
-                .doOnNext { hideProgress() }
                 .subscribe { if (it) startMain() else startLogin()  }
     }
 
