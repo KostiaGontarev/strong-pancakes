@@ -7,14 +7,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.strongpancakes.quest.R
-import com.strongpancakes.quest.data.career.CareerPosition
-import com.strongpancakes.quest.ui.career.position.CareerListAdapter
+import com.strongpancakes.quest.data.tasks.OfficeTask
+import com.strongpancakes.quest.service.MockupData
+import com.strongpancakes.quest.ui.tasks.adapters.OfficeTaskAdapter
+import com.strongpancakes.quest.utils.RxUtil
+import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.fragment_office_tasks.*
 
 /**
  * Created by Yury Minich on 6/17/17.
  */
 class OfficeTasksFragment : Fragment() {
+
+    lateinit var disposable: Disposable;
+    lateinit var adapter: OfficeTaskAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.fragment_office_tasks, container, false)
@@ -25,17 +31,25 @@ class OfficeTasksFragment : Fragment() {
         officeTasks.setHasFixedSize(true)
         officeTasks.layoutManager = LinearLayoutManager(activity)
 
-        val adapter = CareerListAdapter(generateMockData()) {
+        adapter = OfficeTaskAdapter(ArrayList()) {
 
         }
         officeTasks.adapter = adapter
+        getOfficeTasks()
     }
 
-    private fun generateMockData(): List<CareerPosition> {
-        val career = CareerPosition(0, "Test", "Test Descr", 0)
-        var list: MutableList<CareerPosition> = ArrayList<CareerPosition>()
-        list.add(career)
-        return list
+    override fun onStop() {
+        disposable.dispose()
+        super.onStop()
+    }
+
+    private fun getOfficeTasks() {
+        disposable = MockupData.getOfficeTasks()
+                .compose(RxUtil.applySchedulers())
+                .subscribe {
+                    tasks: List<OfficeTask>? ->
+                    tasks?.let { adapter.updateData(it) }
+                }
     }
 
 }
