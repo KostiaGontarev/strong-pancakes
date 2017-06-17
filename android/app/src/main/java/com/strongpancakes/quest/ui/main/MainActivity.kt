@@ -68,7 +68,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun fillUserData(user: User) {
-
+        expText.text = user.exp.toString()
+        user.img?.let {
+            openProfile.setImageResource(it)
+        }
     }
 
 }
