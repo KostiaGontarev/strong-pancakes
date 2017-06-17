@@ -4,6 +4,7 @@ import com.strongpancakes.quest.R
 import com.strongpancakes.quest.data.FeedData
 import com.strongpancakes.quest.data.career.CareerPosition
 import com.strongpancakes.quest.data.career.TaskType
+import com.strongpancakes.quest.data.feed.News
 import com.strongpancakes.quest.data.profile.Achievement
 import com.strongpancakes.quest.data.profile.User
 import com.strongpancakes.quest.data.tasks.OfficeTask
@@ -91,5 +92,14 @@ object MockupData : DataSource {
         list.add(career1)
         return Observable.just(list)
     }
+
+    override fun getNews(): Observable<List<News>> = Observable.just(
+            arrayListOf(
+                News("Hackathon teams 2017. Registration","yesterday at 1:20 PM • updated by Pavel Kaliukhovich • view change"),
+                News("GitLab iTechArt или как организовать работу над проектом Хакатона","Jun 15, 2017 • updated by Iryna Mikrukova • view change"),
+                News("Hackathon teams 2017. Registration","yesterday at 1:20 PM • updated by Pavel Kaliukhovich • view change"),
+                News("Выбор лучшего спикера iTechForum//2017","yesterday at 1:20 PM • updated by Pavel Kaliukhovich • view change"),
+                News("Презентация жюри, критерии оценки проектов и тайминг для защиты проектов Хакатона","Jun 13, 2017 • commented by Andrey Sotnikov")
+        ))
 
 }
