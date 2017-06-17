@@ -18,9 +18,9 @@ interface DataSource {
     }
 
     fun getMe(): Observable<User>
-    fun getUser(id: String): Observable<User>
+    fun getUser(email: String): Observable<User>
 
-    fun getAchievements(): Observable<Achievement>
+    fun getAchievements(): Observable<List<Achievement>>
     fun getOfficeTasks(): Observable<List<OfficeTask>>
     fun getCareerPositionList(): Observable<List<CareerPosition>>
     fun getCareerTasks(): Observable<List<OfficeTask>>
