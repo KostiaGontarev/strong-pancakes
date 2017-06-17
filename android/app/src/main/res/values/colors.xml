@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#009688</color>
     <color name="colorPrimaryDark">#00877A</color>
-    <color name="colorAccent">#009688</color>
+    <color name="colorAccent">@android:color/white</color>
 
 
     <color name="progressBackground">#AA000000</color>

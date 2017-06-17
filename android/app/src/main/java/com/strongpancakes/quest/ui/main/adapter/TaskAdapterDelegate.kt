@@ -8,7 +8,7 @@ import com.hannesdorfmann.adapterdelegates3.AbsListItemAdapterDelegate
 import com.strongpancakes.quest.R
 import com.strongpancakes.quest.data.FeedData
 import com.strongpancakes.quest.data.tasks.OfficeTask
-import kotlinx.android.synthetic.main.item_office_tasks.view.*
+import kotlinx.android.synthetic.main.item_tasks.view.*
 
 /**
  * Created by Yury Minich on 6/17/17.
@@ -20,7 +20,7 @@ class TaskAdapterDelegate() : AbsListItemAdapterDelegate<OfficeTask, FeedData, T
     }
 
     override fun onCreateViewHolder(parent: ViewGroup): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_career_tasks, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_tasks, parent, false)
         return TaskAdapterDelegate.ViewHolder(view)
     }
 
@@ -34,7 +34,7 @@ class TaskAdapterDelegate() : AbsListItemAdapterDelegate<OfficeTask, FeedData, T
         fun bindTasks(task: OfficeTask) {
             with(task) {
                 itemView.taskTitle.text = task.title
-                itemView.taskDesc.text = task.desc
+                itemView.taskTitle.text = task.desc
             }
         }
     }
