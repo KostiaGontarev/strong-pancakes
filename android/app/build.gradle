@@ -3,10 +3,18 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'key'
+            keyPassword '7654321'
+            storeFile file('../officeMe')
+            storePassword '7654321'
+        }
+    }
     compileSdkVersion 25
     buildToolsVersion "26.0.0"
     defaultConfig {
-        applicationId "com.strongpancakes.quest"
+        applicationId "com.strongpancakes.officeme"
         minSdkVersion 21
         targetSdkVersion 23
         versionCode 1
@@ -17,6 +25,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            signingConfig signingConfigs.config
         }
     }
 }
@@ -30,4 +42,9 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:25.4.0'
     testImplementation 'junit:junit:4.12'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.google.firebase:firebase-core:11.0.1'
+    compile 'com.google.firebase:firebase-auth:11.0.1'
 }
+
+apply plugin: 'com.google.gms.google-services'
+

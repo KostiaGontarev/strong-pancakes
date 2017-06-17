@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1031722324186",
+    "firebase_url": "https://officeme-b4c01.firebaseio.com",
+    "project_id": "officeme-b4c01",
+    "storage_bucket": "officeme-b4c01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1031722324186:android:7d73ab307a30bb8d",
+        "android_client_info": {
+          "package_name": "com.strongpancakes.officeme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1031722324186-0foood7d99gj531473kpv4kt8gi5eudf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.strongpancakes.officeme",
+            "certificate_hash": "a1ee061afe57ed5540fb9ad4a4acca86f319ffbe"
+          }
+        },
+        {
+          "client_id": "1031722324186-g9gmjlddfdsea0aem86h65mv264djpsp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVZX-W1mBwpYVDDHBXh2aSNwVoR-Ftkj0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1031722324186-g9gmjlddfdsea0aem86h65mv264djpsp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
