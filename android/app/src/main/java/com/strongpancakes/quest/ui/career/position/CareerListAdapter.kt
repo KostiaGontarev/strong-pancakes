@@ -12,8 +12,13 @@ import kotlinx.android.synthetic.main.item_career_position.view.*
 /**
  * Created by Yury Minich on 6/17/17.
  */
-class CareerListAdapter(val careerList: List<CareerPosition>, val itemClick: (CareerPosition) -> Unit) :
+class CareerListAdapter(var careerList: List<CareerPosition>, val itemClick: (CareerPosition) -> Unit) :
         RecyclerView.Adapter<CareerListAdapter.ViewHolder>() {
+
+    fun updateData(careerList: List<CareerPosition>) {
+        this.careerList = careerList
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_career_position, parent, false)

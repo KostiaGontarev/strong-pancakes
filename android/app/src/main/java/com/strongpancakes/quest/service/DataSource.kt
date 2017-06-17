@@ -1,5 +1,6 @@
 package com.strongpancakes.quest.service
 
+import com.strongpancakes.quest.data.career.CareerPosition
 import com.strongpancakes.quest.data.profile.Achievement
 import com.strongpancakes.quest.data.profile.User
 import com.strongpancakes.quest.data.tasks.OfficeTask
@@ -18,4 +19,6 @@ interface DataSource {
 
     fun getAchievements(): Observable<Achievement>
     fun getOfficeTasks(): Observable<List<OfficeTask>>
+    fun getCareerPositionList(): Observable<List<CareerPosition>>
+    fun getCareerTasks(): Observable<List<OfficeTask>>
 }

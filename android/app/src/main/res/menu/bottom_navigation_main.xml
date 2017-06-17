@@ -3,6 +3,7 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/actionEvents"
+        android:checked="true"
         android:enabled="true"
         android:icon="@drawable/ic_account_circle_white_24dp"
         android:title="Приключения"
@@ -18,11 +19,5 @@
         android:enabled="true"
         android:icon="@drawable/ic_account_circle_white_24dp"
         android:title="Карьера"
-        app:showAsAction="always"/>
-    <item
-        android:id="@+id/actionProfile"
-        android:enabled="true"
-        android:icon="@drawable/ic_account_circle_white_24dp"
-        android:title="Профиль"
         app:showAsAction="always"/>
 </menu>
