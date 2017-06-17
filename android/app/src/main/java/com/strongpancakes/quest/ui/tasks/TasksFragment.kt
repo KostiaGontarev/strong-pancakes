@@ -30,8 +30,8 @@ class TasksFragment : Fragment() {
 
     private fun setupViewPager(viewPager: ViewPager) {
         val adapter = ViewPagerAdapter(activity.fragmentManager)
-        adapter.addFragment(OfficeTasksFragment(), "Office Tasks")
-        adapter.addFragment(CareerTasksFragment(), "Career Tasks")
+        adapter.addFragment(OfficeTasksFragment(), "Офис")
+        adapter.addFragment(CareerTasksFragment(), "Карьера")
         viewPager.adapter = adapter
     }
 
