@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit
 /**
  * Created by dima_korolev on 17/06/2017.
  */
-class SplashScreen: AppCompatActivity() {
+class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
@@ -26,7 +26,7 @@ class SplashScreen: AppCompatActivity() {
                 .delay(2, TimeUnit.SECONDS)
                 .map { OfficeMeApp.instance.hasUser }
                 .compose(RxUtil.applySchedulers())
-                .subscribe { if (it) startMain() else startMain()  }
+                .subscribe { if (it) startMain() else startLogin() }
     }
 
     private fun startMain() {
