@@ -34,7 +34,11 @@ class TaskAdapterDelegate() : AbsListItemAdapterDelegate<OfficeTask, FeedData, T
         fun bindTasks(task: OfficeTask) {
             with(task) {
                 itemView.taskTitle.text = task.title
-                itemView.taskTitle.text = task.desc
+                itemView.taskDesc.text = task.subtitle
+                itemView.taskExp.text = task.exp.toString()
+                itemView.taskTypeColor.setBackgroundColor(task.type.color())
+                itemView.taskTypeTitle.text = task.type.title()
+                itemView.taskIcon.setImageResource(task.type.icon())
             }
         }
     }

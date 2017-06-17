@@ -35,7 +35,11 @@ class OfficeTaskAdapter(var officeTasks: List<OfficeTask>, val itemClick: (Offic
         fun bindTasks(task: OfficeTask) {
             with(task) {
                 itemView.taskTitle.text = task.title
-                itemView.taskDesc.text = task.desc
+                itemView.taskDesc.text = task.subtitle
+                itemView.taskExp.text = task.exp.toString()
+                itemView.taskTypeColor.setBackgroundColor(task.type.color())
+                itemView.taskTypeTitle.text = task.type.title()
+                itemView.taskIcon.setImageResource(task.type.icon())
                 itemView.setOnClickListener { itemClick(this) }
             }
         }
