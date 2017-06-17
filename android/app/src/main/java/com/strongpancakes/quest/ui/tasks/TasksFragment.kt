@@ -27,9 +27,8 @@ class TasksFragment : Fragment() {
         tabsView.setupWithViewPager(tasksPager)
     }
 
-
     private fun setupViewPager(viewPager: ViewPager) {
-        val adapter = ViewPagerAdapter(activity.fragmentManager)
+        val adapter = ViewPagerAdapter(this.childFragmentManager)
         adapter.addFragment(OfficeTasksFragment(), "Офис")
         adapter.addFragment(CareerTasksFragment(), "Карьера")
         viewPager.adapter = adapter

@@ -1,6 +1,7 @@
 package com.strongpancakes.quest.ui.main
 
 import android.app.Fragment
+import android.app.FragmentTransaction
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.strongpancakes.quest.R
@@ -31,9 +32,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun startFragment(fragment: Fragment) {
-        fragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, fragment)
-                .addToBackStack(null)
-                .commit()
+        var fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+        if (fragmentManager.backStackEntryCount > 0) {
+            fragmentManager.popBackStackImmediate()
+            fragmentTransaction.replace(R.id.fragmentContainer, fragment)
+            fragmentTransaction.addToBackStack(null)
+        } else {
+            fragmentTransaction.replace(R.id.fragmentContainer, fragment)
+        }
+        fragmentTransaction.commit()
     }
+
 }
