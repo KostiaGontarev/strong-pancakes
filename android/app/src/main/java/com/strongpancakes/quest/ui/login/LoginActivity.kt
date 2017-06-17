@@ -1,8 +1,12 @@
 package com.strongpancakes.quest.ui.login
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.support.v13.app.ActivityCompat
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.util.Patterns
 import com.jakewharton.rxbinding2.view.RxView
@@ -24,10 +28,13 @@ import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
 
+    val MY_PERMISSIONS_REQUEST_READ_CONTACTS = 123
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         setupBinding()
+        requestPermission()
     }
 
     fun setupBinding() {
@@ -62,5 +69,16 @@ class LoginActivity : AppCompatActivity() {
 
     fun startSignup() {
         start(CreateAccountActivity::class.java)
+    }
+
+    fun requestPermission() {
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+
+                ActivityCompat.requestPermissions(this,
+                        arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION),
+                        MY_PERMISSIONS_REQUEST_READ_CONTACTS)
+        }
     }
 }

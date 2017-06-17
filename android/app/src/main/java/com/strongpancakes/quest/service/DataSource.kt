@@ -10,13 +10,12 @@ import io.reactivex.Observable
  */
 
 interface DataSource {
+    companion object {
+        val instance = MockupData
+    }
     fun getMe(): Observable<User>
     fun getUser(id: String): Observable<User>
 
     fun getAchievements(): Observable<Achievement>
     fun getOfficeTasks(): Observable<List<OfficeTask>>
-}
-
-fun DataSource.getInstance(): DataSource {
-    return MockupData
 }
