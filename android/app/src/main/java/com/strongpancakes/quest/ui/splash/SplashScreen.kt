@@ -31,9 +31,11 @@ class SplashScreen: AppCompatActivity() {
 
     private fun startMain() {
         start(MainActivity::class.java)
+        finish()
     }
 
     private fun startLogin() {
         start(LoginActivity::class.java)
+        finish()
     }
 }
