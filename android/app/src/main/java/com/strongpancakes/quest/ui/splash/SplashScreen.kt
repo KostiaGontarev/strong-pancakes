@@ -26,7 +26,7 @@ class SplashScreen: AppCompatActivity() {
                 .delay(2, TimeUnit.SECONDS)
                 .map { OfficeMeApp.instance.hasUser }
                 .compose(RxUtil.applySchedulers())
-                .subscribe { if (it) startMain() else startMain()  }
+                .subscribe { if (it) startMain() else startLogin()  }
     }
 
     private fun startMain() {
