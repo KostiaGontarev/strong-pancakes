@@ -15,6 +15,7 @@ import com.strongpancakes.quest.utils.RxUtil
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_main.*
 
+
 class MainActivity : AppCompatActivity() {
 
     lateinit var disposable: Disposable
