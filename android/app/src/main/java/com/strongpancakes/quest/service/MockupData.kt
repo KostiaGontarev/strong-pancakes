@@ -1,6 +1,7 @@
 package com.strongpancakes.quest.service
 
 import com.strongpancakes.quest.R
+import com.strongpancakes.quest.data.FeedData
 import com.strongpancakes.quest.data.career.CareerPosition
 import com.strongpancakes.quest.data.career.TaskType
 import com.strongpancakes.quest.data.profile.Achievement
@@ -15,6 +16,24 @@ import kotlin.collections.HashMap
  */
 
 object MockupData : DataSource {
+
+    override fun getFeedData(): Observable<List<FeedData>> {
+        var officeTask: OfficeTask = OfficeTask(1, TaskType.TEST, "Test task",
+                "Test description", 10, R.drawable.ic_account_circle_white_24dp, false, HashMap<String, String>())
+        var officeTask1: OfficeTask = OfficeTask(1, TaskType.TEST, "Test task1",
+                "Test description1", 10, R.drawable.ic_account_circle_white_24dp, false, HashMap<String, String>())
+        var officeTask2: OfficeTask = OfficeTask(1, TaskType.TEST, "Test task2",
+                "Test description2", 10, R.drawable.ic_account_circle_white_24dp, false, HashMap<String, String>())
+        var officeTask3: OfficeTask = OfficeTask(1, TaskType.TEST, "Test task3",
+                "Test description3", 10, R.drawable.ic_account_circle_white_24dp, false, HashMap<String, String>())
+        val tasks: MutableList<OfficeTask> = ArrayList();
+        tasks.add(officeTask)
+        tasks.add(officeTask1)
+        tasks.add(officeTask2)
+        tasks.add(officeTask3)
+
+        return Observable.just(tasks)
+    }
 
     override fun getMe(): Observable<User> {
         return Observable.empty()

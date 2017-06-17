@@ -50,6 +50,7 @@ dependencies {
     compile 'com.android.support:support-v13:25.4.0'
     compile 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
     compile 'org.altbeacon:android-beacon-library:2+'
+    compile 'com.hannesdorfmann:adapterdelegates3:3.0.1'
 }
 
 apply plugin: 'com.google.gms.google-services'

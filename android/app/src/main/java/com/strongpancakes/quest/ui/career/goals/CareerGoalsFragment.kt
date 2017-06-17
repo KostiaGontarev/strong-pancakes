@@ -1,4 +1,4 @@
-package com.strongpancakes.quest.ui.career
+package com.strongpancakes.quest.ui.career.goals
 
 /**
  * Created by Yury Minich on 6/17/17.
