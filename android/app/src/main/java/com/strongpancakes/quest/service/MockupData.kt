@@ -18,15 +18,15 @@ import kotlin.collections.HashMap
 object MockupData : DataSource {
 
     override fun getFeedData(): Observable<List<FeedData>> {
-        var officeTask: OfficeTask = OfficeTask(1, TaskType.TEST, "Test task",
-                "Test description", 10, R.drawable.ic_account_circle_white_24dp, false, HashMap<String, String>())
-        var officeTask1: OfficeTask = OfficeTask(1, TaskType.TEST, "Test task1",
-                "Test description1", 10, R.drawable.ic_account_circle_white_24dp, false, HashMap<String, String>())
-        var officeTask2: OfficeTask = OfficeTask(1, TaskType.TEST, "Test task2",
-                "Test description2", 10, R.drawable.ic_account_circle_white_24dp, false, HashMap<String, String>())
-        var officeTask3: OfficeTask = OfficeTask(1, TaskType.TEST, "Test task3",
-                "Test description3", 10, R.drawable.ic_account_circle_white_24dp, false, HashMap<String, String>())
-        val tasks: MutableList<OfficeTask> = ArrayList();
+        var officeTask: OfficeTask = OfficeTask(1, TaskType.CARRIER, "Прочитать книгу “Разработка требований к программному обеспечению",
+                "Test description", "Выполнить до 18.06.2017", 2, false, HashMap<String, String>())
+        var officeTask1: OfficeTask = OfficeTask(1, TaskType.CARRIER, "Подготовить выступление на Dev2Dev",
+                "Test description1", "Выполнить до 28.06.2017", 5, false, HashMap<String, String>())
+        var officeTask2: OfficeTask = OfficeTask(1, TaskType.NOTIFICATION, "Павел Прохоров выполнил задание",
+                "Test description2", "Выполнено 10.06.2017", 3, false, HashMap<String, String>())
+        var officeTask3: OfficeTask = OfficeTask(1, TaskType.TASK_NETWORKING, "Играем в кикер",
+                "Test description3", "Начало 10.06.2017 в 13.30, 9 этаж", 1, false, HashMap<String, String>())
+        val tasks: MutableList<OfficeTask> = ArrayList()
         tasks.add(officeTask)
         tasks.add(officeTask1)
         tasks.add(officeTask2)
@@ -48,15 +48,15 @@ object MockupData : DataSource {
     }
 
     override fun getOfficeTasks(): Observable<List<OfficeTask>> {
-        var officeTask: OfficeTask = OfficeTask(1, TaskType.TEST, "Test task",
-                "Test description", 10, R.drawable.ic_account_circle_white_24dp, false, HashMap<String, String>())
-        var officeTask1: OfficeTask = OfficeTask(1, TaskType.TEST, "Test task1",
-                "Test description1", 10, R.drawable.ic_account_circle_white_24dp, false, HashMap<String, String>())
-        var officeTask2: OfficeTask = OfficeTask(1, TaskType.TEST, "Test task2",
-                "Test description2", 10, R.drawable.ic_account_circle_white_24dp, false, HashMap<String, String>())
-        var officeTask3: OfficeTask = OfficeTask(1, TaskType.TEST, "Test task3",
-                "Test description3", 10, R.drawable.ic_account_circle_white_24dp, false, HashMap<String, String>())
-        val tasks: MutableList<OfficeTask> = ArrayList();
+        var officeTask: OfficeTask = OfficeTask(1, TaskType.CARRIER, "Прочитать книгу “Разработка требований к программному обеспечению",
+                "Test description", "Выполнить до 18.06.2017", 2, false, HashMap<String, String>())
+        var officeTask1: OfficeTask = OfficeTask(1, TaskType.CARRIER, "Подготовить выступление на Dev2Dev",
+                "Test description1", "Выполнить до 28.06.2017", 5, false, HashMap<String, String>())
+        var officeTask2: OfficeTask = OfficeTask(1, TaskType.NOTIFICATION, "Павел Прохоров выполнил задание",
+                "Test description2", "Выполнено 10.06.2017", 3, false, HashMap<String, String>())
+        var officeTask3: OfficeTask = OfficeTask(1, TaskType.TASK_NETWORKING, "Играем в кикер",
+                "Test description3", "Начало 10.06.2017 в 13.30, 9 этаж", 1, false, HashMap<String, String>())
+        val tasks: MutableList<OfficeTask> = ArrayList()
         tasks.add(officeTask)
         tasks.add(officeTask1)
         tasks.add(officeTask2)
@@ -66,14 +66,14 @@ object MockupData : DataSource {
     }
 
     override fun getCareerTasks(): Observable<List<OfficeTask>> {
-        var officeTask: OfficeTask = OfficeTask(1, TaskType.TEST, "Career task",
-                "Career task descr", 10, R.drawable.ic_account_circle_white_24dp, false, HashMap<String, String>())
-        var officeTask1: OfficeTask = OfficeTask(1, TaskType.TEST, "Career task1",
-                "Test description1", 10, R.drawable.ic_account_circle_white_24dp, false, HashMap<String, String>())
-        var officeTask2: OfficeTask = OfficeTask(1, TaskType.TEST, "Career task2",
-                "Test description2", 10, R.drawable.ic_account_circle_white_24dp, false, HashMap<String, String>())
-        var officeTask3: OfficeTask = OfficeTask(1, TaskType.TEST, "Career task3",
-                "Test description3", 10, R.drawable.ic_account_circle_white_24dp, false, HashMap<String, String>())
+        var officeTask: OfficeTask = OfficeTask(1, TaskType.CARRIER, "Прочитать книгу “Разработка требований к программному обеспечению",
+                "Test description", "Выполнить до 18.06.2017", 2, false, HashMap<String, String>())
+        var officeTask1: OfficeTask = OfficeTask(1, TaskType.CARRIER, "Подготовить выступление на Dev2Dev",
+                "Test description1", "Выполнить до 28.06.2017", 5, false, HashMap<String, String>())
+        var officeTask2: OfficeTask = OfficeTask(1, TaskType.NOTIFICATION, "Павел Прохоров выполнил задание",
+                "Test description2", "Выполнено 10.06.2017", 3, false, HashMap<String, String>())
+        var officeTask3: OfficeTask = OfficeTask(1, TaskType.TASK_NETWORKING, "Играем в кикер",
+                "Test description3", "Начало 10.06.2017 в 13.30, 9 этаж", 1, false, HashMap<String, String>())
         val tasks: MutableList<OfficeTask> = ArrayList();
         tasks.add(officeTask)
         tasks.add(officeTask1)
