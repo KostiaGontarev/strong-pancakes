@@ -1,11 +1,14 @@
 package com.strongpancakes.quest.service
 
+import com.strongpancakes.quest.OfficeMeApp
 import com.strongpancakes.quest.R
 import com.strongpancakes.quest.data.FeedData
 import com.strongpancakes.quest.data.career.CareerPosition
 import com.strongpancakes.quest.data.career.TaskType
+import com.strongpancakes.quest.data.feed.News
 import com.strongpancakes.quest.data.profile.Achievement
 import com.strongpancakes.quest.data.profile.User
+import com.strongpancakes.quest.data.profile.UserRole
 import com.strongpancakes.quest.data.tasks.OfficeTask
 import io.reactivex.Observable
 import java.util.ArrayList
@@ -16,6 +19,27 @@ import kotlin.collections.HashMap
  */
 
 object MockupData : DataSource {
+
+    private val users = arrayListOf(
+            User("test@test.by", R.drawable.dima_avatar, "Dima", "Koroliov",
+                    arrayOf("1", "5", "2"), UserRole.USER, 155),
+
+            User("test@test.com", R.drawable.anton_avatar, "Anton", "Vainovich",
+                    arrayOf("8", "1", "2", "3", "7", "5"), UserRole.MENTOR, 600)
+    )
+
+    private val achievements = arrayListOf(
+            Achievement("1", "Испытательный срок", "", 0),
+            Achievement("2", "Посетить 5 dev2dev", "", 0),
+            Achievement("3", "Провести 5 dev2dev", "", 0),
+            Achievement("4", "Активный перец", "", 0),
+            Achievement("5", "1 год в компании", "", 0),
+            Achievement("6", "Прошел испытательный срок", "", 0),
+            Achievement("7", "Старожило компании", "", 0),
+            Achievement("8", "Ментор", "", 0),
+            Achievement("9", "Выполним 100 заданий", "", 0),
+            Achievement("10", "Придумал 10 заданий", "", 0)
+    )
 
     override fun getFeedData(): Observable<List<FeedData>> {
         var officeTask: OfficeTask = OfficeTask(1, TaskType.CARRIER, "Прочитать книгу “Разработка требований к программному обеспечению",
@@ -36,15 +60,19 @@ object MockupData : DataSource {
     }
 
     override fun getMe(): Observable<User> {
+        val email = OfficeMeApp.instance.auth.currentUser?.email
+        email?.let {
+            return getUser(it)
+        }
         return Observable.empty()
     }
 
-    override fun getUser(id: String): Observable<User> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun getUser(email: String): Observable<User> {
+        return Observable.just(users.find { it.email == email }).map { it ?: users.first() }
     }
 
-    override fun getAchievements(): Observable<Achievement> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun getAchievements(): Observable<List<Achievement>> {
+        return Observable.just(achievements)
     }
 
     override fun getOfficeTasks(): Observable<List<OfficeTask>> {
@@ -91,5 +119,14 @@ object MockupData : DataSource {
         list.add(career1)
         return Observable.just(list)
     }
+
+    override fun getNews(): Observable<List<News>> = Observable.just(
+            arrayListOf(
+                News("Hackathon teams 2017. Registration","yesterday at 1:20 PM • updated by Pavel Kaliukhovich • view change"),
+                News("GitLab iTechArt или как организовать работу над проектом Хакатона","Jun 15, 2017 • updated by Iryna Mikrukova • view change"),
+                News("Hackathon teams 2017. Registration","yesterday at 1:20 PM • updated by Pavel Kaliukhovich • view change"),
+                News("Выбор лучшего спикера iTechForum//2017","yesterday at 1:20 PM • updated by Pavel Kaliukhovich • view change"),
+                News("Презентация жюри, критерии оценки проектов и тайминг для защиты проектов Хакатона","Jun 13, 2017 • commented by Andrey Sotnikov")
+        ))
 
 }
