@@ -18,7 +18,7 @@ fun Activity.start(activity: Class<out Activity>, vararg flags: Int = intArrayOf
 }
 
 fun Activity.showProgress() {
-    var progressView = getProgressView()
+    var progressView = progressView
     if (progressView != null) {
         progressView.visibility = View.VISIBLE
     } else {
@@ -28,18 +28,19 @@ fun Activity.showProgress() {
 }
 
 fun Activity.hideProgress() {
-    getProgressView()?.visibility = View.INVISIBLE
+    progressView?.visibility = View.INVISIBLE
 }
 
 fun Fragment.hideProgress() {
-    activity?.getProgressView()?.visibility = View.INVISIBLE
+    activity?.progressView?.visibility = View.INVISIBLE
 }
 
 fun Fragment.showProgress() {
     activity?.showProgress()
 }
 
-fun Activity.getProgressView(): View? {
+val Activity.progressView: View?
+get() {
     val rootContainer = (findViewById(android.R.id.content) as ViewGroup)
     if (rootContainer.childCount == 0) return null
     val topView = rootContainer.getChildAt(rootContainer.childCount - 1)
