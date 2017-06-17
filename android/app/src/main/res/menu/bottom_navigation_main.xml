@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/actionEvents"
+        android:enabled="true"
+        android:icon="@drawable/ic_account_circle_white_24dp"
+        android:title="Приключения"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/actionTasks"
+        android:enabled="true"
+        android:icon="@drawable/ic_account_circle_white_24dp"
+        android:title="Задания"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/actionCareer"
+        android:enabled="true"
+        android:icon="@drawable/ic_account_circle_white_24dp"
+        android:title="Карьера"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/actionProfile"
+        android:enabled="true"
+        android:icon="@drawable/ic_account_circle_white_24dp"
+        android:title="Профиль"
+        app:showAsAction="always"/>
+</menu>
