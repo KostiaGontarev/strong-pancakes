@@ -16,7 +16,11 @@ import kotlinx.android.synthetic.main.fragment_career_list.*
 class CareerListFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        val view = inflater.inflate(R.layout.fragment_career_list, container, false)
+        return inflater.inflate(R.layout.fragment_career_list, container, false)
+    }
+
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         careerList.setHasFixedSize(true)
         careerList.layoutManager = LinearLayoutManager(activity)
 
@@ -24,11 +28,12 @@ class CareerListFragment : Fragment() {
 
         }
         careerList.adapter = adapter
-
-        return view
     }
 
     private fun generateMockData(): List<CareerPosition> {
-        return ArrayList<CareerPosition>()
+        val career = CareerPosition(0, "Test", "Test Descr", 0)
+        var list: MutableList<CareerPosition> = ArrayList<CareerPosition>()
+        list.add(career)
+        return list
     }
 }
