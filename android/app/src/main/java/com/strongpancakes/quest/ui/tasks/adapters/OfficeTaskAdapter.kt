@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.strongpancakes.quest.R
 import com.strongpancakes.quest.data.tasks.OfficeTask
-import kotlinx.android.synthetic.main.item_office_tasks.view.*
+import kotlinx.android.synthetic.main.item_tasks.view.*
 
 /**
  * Created by Yury Minich on 6/17/17.
@@ -20,7 +20,7 @@ class OfficeTaskAdapter(var officeTasks: List<OfficeTask>, val itemClick: (Offic
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_office_tasks, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_tasks, parent, false)
         return ViewHolder(view, itemClick)
     }
 
