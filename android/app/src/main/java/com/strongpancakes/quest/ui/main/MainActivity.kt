@@ -1,7 +1,8 @@
-package com.strongpancakes.quest
+package com.strongpancakes.quest.ui.main
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.strongpancakes.quest.R
 
 class MainActivity : AppCompatActivity() {
 
