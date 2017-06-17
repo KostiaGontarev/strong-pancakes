@@ -9,6 +9,7 @@ import com.strongpancakes.quest.data.career.TaskType
 data class OfficeTask(val id: Long, val type: TaskType,
                       val title: String,
                       val desc: String,
-                      val exp: Long, val icon: Int,
+                      val subtitle: String,
+                      val exp: Long,
                       val isDone: Boolean,
                       val attachments: Map<String, String>) : FeedData
