@@ -29,12 +29,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         startFragment(DashboardFragment())
         bottomNavigation.setOnNavigationItemSelectedListener {
-            when (it.itemId) {
-                actionEvents -> startFragment(DashboardFragment())
-                actionTasks -> startFragment(TasksFragment())
-                actionCareer -> startFragment(CareerListFragment())
-                else -> {
-                    false
+            if (!it.isChecked) {
+                when (it.itemId) {
+                    actionEvents -> startFragment(DashboardFragment())
+                    actionTasks -> startFragment(TasksFragment())
+                    actionCareer -> startFragment(CareerListFragment())
+                    else -> {
+                        false
+                    }
                 }
             }
             true
@@ -44,8 +46,8 @@ class MainActivity : AppCompatActivity() {
         Observable.just("Hi, I am here!")
                 .delay(2, TimeUnit.SECONDS)
                 .subscribe {
-            KoalaAlertActivity.show(it, null, null)
-        }
+                    KoalaAlertActivity.show(it, null, null)
+                }
     }
 
     override fun onStop() {
@@ -83,7 +85,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun startProfileActivity(){
+    fun startProfileActivity() {
         start(ProfileActivity::class.java)
     }
 
