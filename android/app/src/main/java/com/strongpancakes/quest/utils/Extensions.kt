@@ -72,7 +72,7 @@ fun SharedPreferences.addTask(title: String) {
 }
 
 fun SharedPreferences.getTasks(): List<OfficeTask>
-        = getString("users_tasks", "").split(",").map { OfficeTask.createUserTask(it) }
+        = getString("users_tasks", "").split(",").filter { !it.isEmpty() }.map { OfficeTask.createUserTask(it) }
 
 fun View.hideKeyboard() {
     val view = (context as Activity).currentFocus
