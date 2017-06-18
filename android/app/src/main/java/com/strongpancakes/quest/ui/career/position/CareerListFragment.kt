@@ -7,8 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.strongpancakes.quest.R
-import com.strongpancakes.quest.data.career.CareerPosition
+import com.strongpancakes.quest.data.career.CareerData
 import com.strongpancakes.quest.service.DataSource
+import com.strongpancakes.quest.ui.career.position.adapter.CareerListAdapter
 import com.strongpancakes.quest.utils.RxUtil
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.fragment_career_list.*
@@ -30,9 +31,7 @@ class CareerListFragment : Fragment() {
         careerList.setHasFixedSize(true)
         careerList.layoutManager = LinearLayoutManager(activity)
 
-        adapter = CareerListAdapter(ArrayList()) {
-
-        }
+        adapter = CareerListAdapter(ArrayList())
         careerList.adapter = adapter
         getCareerList()
     }
@@ -46,7 +45,7 @@ class CareerListFragment : Fragment() {
         disposable = DataSource.instance.getCareerPositionList()
                 .compose(RxUtil.applySchedulers())
                 .subscribe {
-                    careerList: List<CareerPosition>? ->
+                    careerList: List<CareerData>? ->
                     careerList?.let { adapter.updateData(it) }
                 }
     }

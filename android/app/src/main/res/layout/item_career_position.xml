@@ -1,31 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="80dp"
-              android:orientation="horizontal"
-              android:padding="5dp">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@android:color/white"
+                android:orientation="horizontal">
 
-    <ImageView
-        android:id="@+id/positionIcon"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center_vertical"
-        android:src="@drawable/ic_account_circle_black_24dp"/>
+    <View
+        android:id="@+id/positionIndicator"
+        android:layout_width="10dp"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"/>
 
     <LinearLayout
+        android:id="@+id/positionStatusContainer"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@+id/positionIndicator"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingEnd="5dp"
+        android:paddingStart="5dp">
+        <ImageView
+            android:id="@+id/positionIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/fa_child"/>
+
+        <TextView
+            android:id="@+id/positionStatusText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="10sp"
+            tools:text="Text"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/dataContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@+id/divider1"
+        android:layout_toRightOf="@+id/positionStatusContainer"
+        android:gravity="center_vertical"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/positionTitle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:text="JBHBVJHVJGH"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/positionDesc"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Hvhvhjvjhv"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="10sp"/>
 
     </LinearLayout>
-</LinearLayout>
+
+    <View
+        android:id="@+id/divider1"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/currentCountContainer"
+        android:background="@android:color/darker_gray"/>
+
+    <LinearLayout
+        android:id="@+id/currentCountContainer"
+        android:layout_width="70dp"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@+id/divider2"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingEnd="5dp"
+        android:paddingStart="5dp">
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:gravity="center_horizontal"
+                      android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/currentStar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/fa_star"/>
+
+            <TextView
+                android:id="@+id/currentBalls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="155"
+                android:textSize="16sp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:gravity="center_horizontal"
+            android:maxLines="2"
+            android:text="баллов сейчас"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="9sp"/>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/goalCountContainer"
+        android:background="@android:color/darker_gray"/>
+
+    <LinearLayout
+        android:id="@+id/goalCountContainer"
+        android:layout_width="75dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:orientation="vertical">
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:gravity="center_horizontal"
+                      android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/goalStar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/fa_star"/>
+
+            <TextView
+                android:id="@+id/goalBalls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="155"
+                android:textSize="16sp"/>
+
+        </LinearLayout>
+
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:layout_marginTop="3dp"
+                  android:gravity="center"
+                  android:maxLines="2"
+                  android:paddingEnd="3dp"
+                  android:paddingStart="3dp"
+                  android:text="балов нужно для перехода"
+                  android:textColor="@android:color/darker_gray"
+                  android:textSize="9sp"/>
+
+    </LinearLayout>
+
+    <View android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_alignParentBottom="true"
+          android:layout_toRightOf="@+id/positionIndicator"
+          android:background="@android:color/darker_gray"/>
+</RelativeLayout>

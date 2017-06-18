@@ -122,12 +122,12 @@ object MockupData : DataSource {
                     CareerPosition(1, "Junior software developer", "Начало карьеры 17.10.2016",
                             R.drawable.fa_child, "Старт", 155, 200),
                     KoalaAdvice("До следующей ступени осталось 45 баллов!", "45"),
-                    CareerPosition(1, "Junior software developer", "Начало карьеры 17.10.2016",
-                            R.drawable.fa_child, "Старт", 155, 200),
-                    CareerPosition(1, "Junior software developer", "Начало карьеры 17.10.2016",
-                            R.drawable.fa_child, "Старт", 155, 200),
-                    CareerPosition(1, "Junior software developer", "Начало карьеры 17.10.2016",
-                            R.drawable.fa_child, "Старт", 155, 200),
+                    CareerPosition(1, "Middle 1 software developer", "Эта ступень еще не начата",
+                            R.drawable.fa_lock, "Ступень 2.0", 0, 450),
+                    CareerPosition(1, "Middle 2 software developer", "Эта ступень еще не начата",
+                            R.drawable.fa_lock, "Ступень 2.1", 0, 750),
+                    CareerPosition(1, "Middle 3 software developer", "Эта ступень еще не начата",
+                            R.drawable.fa_lock, "Ступень 2.2", 0, 1100),
                     KoalaAdvice("Следующие ступени появятся по мере продвижения.")
             ))
 
