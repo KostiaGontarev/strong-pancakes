@@ -19,6 +19,7 @@ class ProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
+        closeActivity.setOnClickListener { finish() }
         getProfileData()
     }
 
@@ -40,7 +41,11 @@ class ProfileActivity : AppCompatActivity() {
 
     fun fillUserData(user: User) {
         userName.text = "${user.firstName} ${user.lastName}"
-        userEmail.text = user.email
+//        userEmail.text = user.email
+        profileStars.text = user.exp.toString()
+        level.text = user.level
+        departament.text = user.depart
+        birthday.text = user.birthday
     }
 
 

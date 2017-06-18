@@ -13,7 +13,6 @@ import com.strongpancakes.quest.data.profile.Achievement
 import com.strongpancakes.quest.data.profile.User
 import com.strongpancakes.quest.data.profile.UserRole
 import com.strongpancakes.quest.data.tasks.OfficeTask
-import com.strongpancakes.quest.utils.addTask
 import com.strongpancakes.quest.utils.getTasks
 import io.reactivex.Observable
 import java.util.ArrayList
