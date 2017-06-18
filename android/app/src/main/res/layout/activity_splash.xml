@@ -3,13 +3,13 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              android:background="@color/colorPrimary"
-             android:orientation="vertical"
-             android:padding="50dp">
+             android:orientation="vertical">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:src="@drawable/koala_body"/>
+        android:src="@drawable/splash_screen"
+        android:scaleType="centerCrop"/>
 
 </FrameLayout>

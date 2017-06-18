@@ -8,13 +8,16 @@ import com.strongpancakes.quest.R
 import com.strongpancakes.quest.R.id.*
 import com.strongpancakes.quest.data.profile.User
 import com.strongpancakes.quest.service.DataSource
+import com.strongpancakes.quest.ui.alert.KoalaAlertActivity
 import com.strongpancakes.quest.ui.career.position.CareerListFragment
 import com.strongpancakes.quest.ui.profile.ProfileActivity
 import com.strongpancakes.quest.ui.tasks.TasksFragment
 import com.strongpancakes.quest.utils.RxUtil
 import com.strongpancakes.quest.utils.start
+import io.reactivex.Observable
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.concurrent.TimeUnit
 
 
 class MainActivity : AppCompatActivity() {
@@ -38,6 +41,11 @@ class MainActivity : AppCompatActivity() {
         }
         openProfile.setOnClickListener { startProfileActivity() }
         getProfileData()
+        Observable.just("Hi, I am here!")
+                .delay(2, TimeUnit.SECONDS)
+                .subscribe {
+            KoalaAlertActivity.show(it, null, null)
+        }
     }
 
     override fun onStop() {
