@@ -34,9 +34,11 @@ class CareerPositionAdapterDelegate : AbsListItemAdapterDelegate<CareerPosition,
             viewHolder.itemView.positionStatusText.setTextColor(context.resources.getColor(android.R.color.darker_gray))
             viewHolder.itemView.currentStar.setColorFilter(context.resources.getColor(android.R.color.darker_gray))
             viewHolder.itemView.goalStar.setColorFilter(context.resources.getColor(android.R.color.darker_gray))
+            viewHolder.itemView.positionIndicator.setBackgroundColor(context.resources.getColor(android.R.color.darker_gray))
         } else {
-            viewHolder.itemView.positionStatusText.setTextColor(context.resources.getColor(R.color.colorPrimary))
 
+            viewHolder.itemView.positionStatusText.setTextColor(context.resources.getColor(R.color.colorGreen))
+            viewHolder.itemView.positionIndicator.setBackgroundColor(context.resources.getColor(R.color.colorGreen))
         }
     }
 

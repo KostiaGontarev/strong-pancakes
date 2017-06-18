@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="80dp"
-              android:orientation="vertical">
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent" android:layout_height="70dp"
+              android:gravity="center_vertical"
+              android:orientation="horizontal"
+              android:paddingEnd="20dp">
 
     <ImageView android:layout_width="wrap_content"
                android:layout_height="wrap_content"
+               android:layout_marginStart="50dp"
                android:src="@drawable/koala"/>
+
+    <TextView
+        android:id="@+id/koalaAdvice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/ic_chat_background"
+        android:gravity="start"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="11sp"/>
 
 </LinearLayout>
