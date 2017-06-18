@@ -1,30 +1,24 @@
 package com.strongpancakes.quest.ui.profile
 
-import android.app.Fragment
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.support.v7.app.AppCompatActivity
 import com.strongpancakes.quest.R
 import com.strongpancakes.quest.data.profile.User
 import com.strongpancakes.quest.service.DataSource
 import com.strongpancakes.quest.utils.RxUtil
 import io.reactivex.disposables.Disposable
-import kotlinx.android.synthetic.main.fragment_profile.*
+import kotlinx.android.synthetic.main.activity_profile.*
 
 /**
- * Created by Yury Minich on 6/17/17.
+ * Created by Yury Minich on 6/18/17.
  */
-class ProfileFragment : Fragment() {
+class ProfileActivity : AppCompatActivity() {
 
     lateinit var disposable: Disposable
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.fragment_profile, container, false)
-    }
-
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_profile)
         getProfileData()
     }
 
@@ -48,5 +42,6 @@ class ProfileFragment : Fragment() {
         userName.text = "${user.firstName} ${user.lastName}"
         userEmail.text = user.email
     }
+
 
 }

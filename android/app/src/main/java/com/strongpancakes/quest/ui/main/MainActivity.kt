@@ -9,9 +9,10 @@ import com.strongpancakes.quest.R.id.*
 import com.strongpancakes.quest.data.profile.User
 import com.strongpancakes.quest.service.DataSource
 import com.strongpancakes.quest.ui.career.position.CareerListFragment
-import com.strongpancakes.quest.ui.profile.ProfileFragment
+import com.strongpancakes.quest.ui.profile.ProfileActivity
 import com.strongpancakes.quest.ui.tasks.TasksFragment
 import com.strongpancakes.quest.utils.RxUtil
+import com.strongpancakes.quest.utils.start
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -35,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-        openProfile.setOnClickListener { startFragment(ProfileFragment()) }
+        openProfile.setOnClickListener { startProfileActivity() }
         getProfileData()
     }
 
@@ -72,6 +73,10 @@ class MainActivity : AppCompatActivity() {
         user.img?.let {
             openProfile.setImageResource(it)
         }
+    }
+
+    fun startProfileActivity(){
+        start(ProfileActivity::class.java)
     }
 
 }
