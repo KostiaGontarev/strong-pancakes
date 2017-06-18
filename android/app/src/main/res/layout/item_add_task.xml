@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:card_view="http://schemas.android.com/apk/res-auto"
+             android:layout_width="match_parent"
+             android:layout_height="70dp"
+             android:orientation="vertical"
+             android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:id="@+id/addTaskView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_add_circle"
+            android:tint="@color/colorPrimary"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Добавить задачу"
+            android:textColor="@color/colorPrimary"/>
+    </LinearLayout>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/addTaskContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginBottom="7dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="3dp"
+        card_view:cardBackgroundColor="@color/colorPrimary"
+        card_view:cardCornerRadius="5dp"
+        card_view:cardElevation="2dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/taskText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/ic_add_circle"
+                android:tint="@color/colorPrimary"
+                android:textColor="@android:color/white"
+                android:maxLines="2"/>
+
+            <ImageButton
+                android:id="@+id/addTask"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:src="@drawable/ic_check_circle"
+                android:tint="@android:color/white"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</FrameLayout>

@@ -29,7 +29,7 @@ class DashboardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         feedView.setHasFixedSize(true)
         feedView.layoutManager = LinearLayoutManager(activity)
-        adapter = FeedDataAdapter(ArrayList())
+        adapter = FeedDataAdapter(activity, ArrayList())
         feedView.adapter = adapter
         getFeedData()
     }

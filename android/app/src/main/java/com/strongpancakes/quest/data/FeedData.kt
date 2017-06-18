@@ -5,3 +5,5 @@ package com.strongpancakes.quest.data
  */
 interface FeedData {
 }
+
+data class AddTask(val s: String = ""): FeedData

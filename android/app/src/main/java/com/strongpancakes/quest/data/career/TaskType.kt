@@ -7,7 +7,7 @@ import com.strongpancakes.quest.R
  * Created by Yury Minich on 6/17/17.
  */
 enum class TaskType {
-    TEST, BEACON, ARTICLE, TASK, TASK_NETWORKING, PHOTO_TASK, IDEAS, CARRIER, NOTIFICATION;
+    TEST, BEACON, ARTICLE, TASK, TASK_NETWORKING, PHOTO_TASK, IDEAS, CARRIER, NOTIFICATION, MY;
 
     fun icon(): Int = when (this) {
         TASK_NETWORKING -> R.drawable.fa_group
