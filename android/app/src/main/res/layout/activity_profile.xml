@@ -12,17 +12,19 @@
 
         <ImageView
             android:id="@+id/closeActivity"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
+            android:background="?android:attr/selectableItemBackground"
             android:src="@drawable/ic_close"
+
             android:tint="@android:color/white"/>
 
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:layout_marginStart="5dp"
-                  android:layout_marginTop="10dp"
+                  android:layout_marginTop="12dp"
                   android:layout_toRightOf="@+id/closeActivity"
                   android:text="Профиль"
                   android:textColor="@android:color/white"/>
@@ -34,11 +36,13 @@
             android:layout_centerInParent="true"
             android:src="@drawable/dima_avatar_full"/>
 
-        <ImageView android:layout_width="21dp"
-                   android:layout_height="21dp"
+        <ImageView android:layout_width="24dp"
+                   android:layout_height="24dp"
                    android:layout_alignParentRight="true"
+
                    android:layout_marginEnd="8dp"
                    android:layout_marginTop="8dp"
+                   android:background="?android:attr/selectableItemBackground"
                    android:src="@drawable/fa_gear"/>
 
         <TextView

@@ -25,11 +25,11 @@ import kotlin.collections.HashMap
 object MockupData : DataSource {
 
     private val users = arrayListOf(
-            User("test@test.by", R.drawable.dima_avatar, "Dima", "Koroliov",
-                    arrayOf("1", "5", "2"), UserRole.USER, 155),
+            User("test@test.by", R.drawable.dima_avatar, "Дмитрий", "Королев",
+                    arrayOf("1", "5", "2"), arrayOf("3", "8"), UserRole.USER, 155),
 
             User("test@test.com", R.drawable.anton_avatar, "Anton", "Vainovich",
-                    arrayOf("8", "1", "2", "3", "7", "5"), UserRole.MENTOR, 600)
+                    arrayOf("8", "1", "2", "3", "7", "5"), arrayOf("4"), UserRole.MENTOR, 600)
     )
 
     private val achievements = arrayListOf(
