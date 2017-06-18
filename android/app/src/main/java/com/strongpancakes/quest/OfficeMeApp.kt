@@ -5,10 +5,7 @@ import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.strongpancakes.quest.ui.alert.KoalaAlertActivity
 import io.reactivex.subjects.BehaviorSubject
-import org.altbeacon.beacon.BeaconConsumer
-import org.altbeacon.beacon.BeaconManager
-import org.altbeacon.beacon.BeaconParser
-import org.altbeacon.beacon.Region
+import org.altbeacon.beacon.*
 import org.altbeacon.beacon.powersave.BackgroundPowerSaver
 import org.altbeacon.beacon.startup.RegionBootstrap
 import java.lang.Exception
@@ -29,7 +26,7 @@ class OfficeMeApp : Application(), BeaconConsumer {
     lateinit var beacon: BeaconManager
     var backgroundPowerSaver: BackgroundPowerSaver? = null
 
-    val beaconSubject = BehaviorSubject.create<String>()
+    val beaconSubject = BehaviorSubject.create<Beacon>()
 
     val hasUser: Boolean
     get() = auth.currentUser!= null
@@ -40,12 +37,19 @@ class OfficeMeApp : Application(), BeaconConsumer {
         super.onCreate()
         OfficeMeApp.instance = this
         initSDK()
-        var used = false
+        var used1 = false
+        var used2 = false
         beaconSubject
-                .filter { !used && it == "7156a32c-3399-4af2-8657-2071cd0e92df" } //55aeed94-0050-4794-856a-c438e4e4b5f4
+                .filter { !used1 && it.getUUID() == "7156a32c-3399-4af2-8657-2071cd0e92df" } //55aeed94-0050-4794-856a-c438e4e4b5f4
                 .subscribe {
-                    used = true
-                    KoalaAlertActivity.show("Поздравляю! Вы познакомились с мишкой :)")
+                    used1 = true
+                    KoalaAlertActivity.show("Поздравляю! Вы познакомились с нашим фичей. Это кухня :)")
+                }
+        beaconSubject
+                .filter { !used2 && it.getUUID() == "22fe5967-8ce5-44de-9eb9-f3e69af96921" }
+                .subscribe {
+                    used2 = true
+                    KoalaAlertActivity.show("Поздравляю! Вы познакомились с нашим фичей. Это митинг рум :)")
                 }
     }
 
@@ -67,9 +71,8 @@ class OfficeMeApp : Application(), BeaconConsumer {
         beacon.setBackgroundMode(true) //55aeed94-0050-4794-856a-c438e4e4b5fd
         OfficeMeApp.instance.beacon.setRangeNotifier { beacons, region ->
             beacons.filter { it.distance < 1.5 }
-                    .map { it.id1.toString() }
                     .forEach {
-                        Log.d("BEACON", it)
+                        Log.d("BEACON", it.getUUID())
                         beaconSubject.onNext(it)
                     }
 //            if (beacons.size > 0) {
@@ -84,5 +87,9 @@ class OfficeMeApp : Application(), BeaconConsumer {
         } catch (e: Exception) {
             e.printStackTrace()
         }
+    }
+
+    fun Beacon.getUUID(): String {
+        return id1.toString()
     }
 }
