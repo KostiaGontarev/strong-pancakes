@@ -41,8 +41,8 @@ class MainActivity : AppCompatActivity() {
         }
         openProfile.setOnClickListener { startProfileActivity() }
         getProfileData()
-        Observable.just("Hi, I am here!")
-                .delay(2, TimeUnit.SECONDS)
+        Observable.just("Привет. С возвращением!\nУ тебя тебя есть несколько невыполненых задач, самое время их выполнить.")
+                .delay(3, TimeUnit.SECONDS)
                 .subscribe {
             KoalaAlertActivity.show(it, null, null)
         }

@@ -1,7 +1,9 @@
 package com.strongpancakes.quest
 
 import android.app.Application
+import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
+import com.strongpancakes.quest.ui.alert.KoalaAlertActivity
 import io.reactivex.subjects.BehaviorSubject
 import org.altbeacon.beacon.BeaconConsumer
 import org.altbeacon.beacon.BeaconManager
@@ -38,6 +40,13 @@ class OfficeMeApp : Application(), BeaconConsumer {
         super.onCreate()
         OfficeMeApp.instance = this
         initSDK()
+        var used = false
+        beaconSubject
+                .filter { !used && it == "7156a32c-3399-4af2-8657-2071cd0e92df" } //55aeed94-0050-4794-856a-c438e4e4b5f4
+                .subscribe {
+                    used = true
+                    KoalaAlertActivity.show("Поздравляю! Вы познакомились с мишкой :)")
+                }
     }
 
     private fun initSDK() {
@@ -55,10 +64,14 @@ class OfficeMeApp : Application(), BeaconConsumer {
     }
 
     override fun onBeaconServiceConnect() {
-        beacon.setBackgroundMode(true)
+        beacon.setBackgroundMode(true) //55aeed94-0050-4794-856a-c438e4e4b5fd
         OfficeMeApp.instance.beacon.setRangeNotifier { beacons, region ->
-            beacons.filter { it.distance < 5 }
-                    .forEach { beaconSubject.onNext(it.id1.toString()) }
+            beacons.filter { it.distance < 1.5 }
+                    .map { it.id1.toString() }
+                    .forEach {
+                        Log.d("BEACON", it)
+                        beaconSubject.onNext(it)
+                    }
 //            if (beacons.size > 0) {
 //                val firstBeacon = beacons.iterator().next()
 //                Observable.just(firstBeacon).observeOn(AndroidSchedulers.mainThread())

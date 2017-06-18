@@ -35,20 +35,20 @@
             android:layout_marginTop="8dp"/>
 
         <Button
+            android:id="@+id/confirm"
             android:layout_width="140dp"
             android:layout_height="40dp"
             android:layout_alignParentRight="true"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/message"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/message"
-            tools:text="Я готов"
-            android:textColor="@android:color/white"
             android:backgroundTint="@color/colorPrimary"
-            android:id="@+id/confirm"/>
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Я готов"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintHorizontal_bias="0.95"/>
 
         <ImageView
             android:id="@+id/close"

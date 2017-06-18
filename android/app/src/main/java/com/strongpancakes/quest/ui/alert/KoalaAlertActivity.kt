@@ -20,7 +20,7 @@ class KoalaAlertActivity : AppCompatActivity() {
     }
 
     companion object {
-        fun show(message: String, action: String?, callback: ActionClick?) {
+        fun show(message: String, action: String? = null, callback: ActionClick? = null) {
             val intent = Intent(OfficeMeApp.instance, KoalaAlertActivity::class.java)
             intent.putExtras(Bundle().apply {
                 putString("message", message)

@@ -22,7 +22,7 @@ import kotlinx.android.synthetic.main.fragment_office_tasks.*
  */
 class OfficeTasksFragment : Fragment() {
 
-    lateinit var disposable: Disposable;
+    lateinit var disposable: Disposable
     lateinit var adapter: FeedDataAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
