@@ -70,6 +70,13 @@
         android:layout_above="@+id/bottomNavigation"
         android:layout_below="@+id/toolbarLayout"/>
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:layout_above="@+id/bottomNavigation"
+        android:background="@drawable/shadow_gradient"
+        android:alpha="0.4"/>
+
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
