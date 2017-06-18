@@ -1,36 +1,249 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white">
 
-    <RelativeLayout android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:background="@color/colorPrimary">
+    <RelativeLayout
+        android:id="@+id/profileContainer"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/closeActivity"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:src="@drawable/ic_close"
+
+            android:tint="@android:color/white"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginStart="5dp"
+                  android:layout_marginTop="12dp"
+                  android:layout_toRightOf="@+id/closeActivity"
+                  android:text="Профиль"
+                  android:textColor="@android:color/white"/>
 
         <ImageView
             android:id="@+id/profileAvatar"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_centerInParent="true"
-            android:src="@drawable/dima_avatar"/>
+            android:src="@drawable/dima_avatar_full"/>
+
+        <ImageView android:layout_width="24dp"
+                   android:layout_height="24dp"
+                   android:layout_alignParentRight="true"
+
+                   android:layout_marginEnd="8dp"
+                   android:layout_marginTop="8dp"
+                   android:background="?android:attr/selectableItemBackground"
+                   android:src="@drawable/fa_gear"/>
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profileAvatar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="4dp"
+            android:text="User name"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"/>
+
+        <ImageView
+            android:id="@+id/star"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:layout_toRightOf="@+id/profileAvatar"
+            android:src="@drawable/fa_star"
+            android:tint="@android:color/white"/>
+
+        <TextView
+            android:id="@+id/profileStars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:layout_toRightOf="@+id/star"
+            android:text="155"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"/>
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/userName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="User name"/>
+    <View android:layout_width="match_parent"
+          android:layout_height="5dp"
+          android:layout_below="@+id/profileContainer"
+          android:alpha="0.4"
+          android:background="@drawable/shadow_gradient"
+          android:rotation="180"/>
 
-    <TextView
-        android:id="@+id/userPosition"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="User name"/>
+    <ScrollView android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profileContainer">
 
-    <TextView
-        android:id="@+id/userEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="User name"/>
-</LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/infoContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#f2f2f2"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:gravity="center_vertical"
+                              android:orientation="horizontal"
+                              android:padding="8dp">
+
+                    <ImageView android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:src="@drawable/fa_tachometer"/>
+
+                    <LinearLayout android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:layout_marginStart="10dp"
+                                  android:orientation="vertical">
+
+                        <TextView android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="Уровень:"
+                                  android:textSize="10sp"/>
+
+                        <TextView
+                            android:id="@+id/level"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="Bjhbhvjhvj"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:gravity="center_vertical"
+                              android:orientation="horizontal"
+                              android:padding="8dp">
+
+                    <ImageView android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:src="@drawable/fa_institution"/>
+
+                    <LinearLayout android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:layout_marginStart="10dp"
+                                  android:orientation="vertical">
+
+                        <TextView android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="Отдел:"
+                                  android:textSize="10sp"/>
+
+                        <TextView
+                            android:id="@+id/departament"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="Bjhbhvjhvj"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:gravity="center_vertical"
+                              android:orientation="horizontal"
+                              android:padding="8dp">
+
+                    <ImageView android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:src="@drawable/fa_birthday_cake"/>
+
+                    <LinearLayout android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:layout_marginStart="10dp"
+                                  android:orientation="vertical">
+
+                        <TextView android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="День Рождения:"
+                                  android:textSize="10sp"/>
+
+                        <TextView
+                            android:id="@+id/birthday"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="Bjhbhvjhvj"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View android:layout_width="match_parent"
+                  android:layout_height="5dp"
+                  android:layout_above="@+id/atchContainer"
+                  android:alpha="0.4"
+                  android:background="@drawable/shadow_gradient"/>
+
+            <RelativeLayout
+                android:id="@+id/atchContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/infoContainer"
+                android:background="@android:color/white">
+
+                <TextView
+                    android:id="@+id/atchTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:text="Достижения:"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/achievmentsList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/atchTitle"
+                    android:layout_marginTop="10dp"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <View android:layout_width="match_parent"
+          android:layout_height="5dp"
+          android:layout_below="@+id/profileContainer"
+          android:alpha="0.4"
+          android:background="@drawable/shadow_gradient"
+          android:rotation="180"/>
+
+</RelativeLayout>
