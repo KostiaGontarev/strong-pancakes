@@ -3,6 +3,8 @@ package com.strongpancakes.quest.service
 import com.strongpancakes.quest.OfficeMeApp
 import com.strongpancakes.quest.R
 import com.strongpancakes.quest.data.FeedData
+import com.strongpancakes.quest.data.KoalaAdvice
+import com.strongpancakes.quest.data.career.CareerData
 import com.strongpancakes.quest.data.career.CareerPosition
 import com.strongpancakes.quest.data.career.TaskType
 import com.strongpancakes.quest.data.feed.News
@@ -111,14 +113,19 @@ object MockupData : DataSource {
         return Observable.just(tasks)
     }
 
-    override fun getCareerPositionList(): Observable<List<CareerPosition>> {
-        val career = CareerPosition(0, "Test", "Test Descr", 0)
-        val career1 = CareerPosition(0, "Test1", "Test Descr1", 0)
-        var list: MutableList<CareerPosition> = ArrayList<CareerPosition>()
-        list.add(career)
-        list.add(career1)
-        return Observable.just(list)
-    }
+    override fun getCareerPositionList(): Observable<List<CareerData>> = Observable.just(
+            arrayListOf(
+                    CareerPosition(1, "Junior software developer", "Начало карьеры 17.10.2016",
+                            R.drawable.fa_child, "Старт", 155, 200),
+                    KoalaAdvice("До следующей ступени осталось 45 баллов!", "45"),
+                    CareerPosition(1, "Junior software developer", "Начало карьеры 17.10.2016",
+                            R.drawable.fa_child, "Старт", 155, 200),
+                    CareerPosition(1, "Junior software developer", "Начало карьеры 17.10.2016",
+                            R.drawable.fa_child, "Старт", 155, 200),
+                    CareerPosition(1, "Junior software developer", "Начало карьеры 17.10.2016",
+                            R.drawable.fa_child, "Старт", 155, 200),
+                    KoalaAdvice("Следующие ступени появятся по мере продвижения.")
+            ))
 
     override fun getNews(): Observable<List<News>> = Observable.just(
             arrayListOf(
