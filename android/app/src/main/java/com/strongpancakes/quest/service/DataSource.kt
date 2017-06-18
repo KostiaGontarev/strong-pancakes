@@ -3,7 +3,6 @@ package com.strongpancakes.quest.service
 import com.strongpancakes.quest.data.FeedData
 import com.strongpancakes.quest.data.career.CareerData
 import com.strongpancakes.quest.data.career.CareerPosition
-import com.strongpancakes.quest.data.feed.News
 import com.strongpancakes.quest.data.profile.Achievement
 import com.strongpancakes.quest.data.profile.User
 import com.strongpancakes.quest.data.tasks.OfficeTask
@@ -26,5 +25,4 @@ interface DataSource {
     fun getCareerPositionList(): Observable<List<CareerData>>
     fun getCareerTasks(): Observable<List<OfficeTask>>
     fun getFeedData(): Observable<List<FeedData>>
-    fun getNews(): Observable<List<News>>
 }
