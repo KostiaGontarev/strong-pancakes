@@ -1,5 +1,6 @@
 package com.strongpancakes.quest.service
 
+import android.preference.PreferenceManager
 import com.strongpancakes.quest.OfficeMeApp
 import com.strongpancakes.quest.R
 import com.strongpancakes.quest.data.FeedData
@@ -12,6 +13,8 @@ import com.strongpancakes.quest.data.profile.Achievement
 import com.strongpancakes.quest.data.profile.User
 import com.strongpancakes.quest.data.profile.UserRole
 import com.strongpancakes.quest.data.tasks.OfficeTask
+import com.strongpancakes.quest.utils.addTask
+import com.strongpancakes.quest.utils.getTasks
 import io.reactivex.Observable
 import java.util.ArrayList
 import kotlin.collections.HashMap
@@ -95,6 +98,8 @@ object MockupData : DataSource {
         tasks.add(officeTask1)
         tasks.add(officeTask2)
         tasks.add(officeTask3)
+
+        tasks.addAll(PreferenceManager.getDefaultSharedPreferences(OfficeMeApp.instance).getTasks())
 
         return Observable.just(tasks)
     }

@@ -1,25 +1,45 @@
 package com.strongpancakes.quest.ui.main.adapter
 
+import android.content.Context
+import android.preference.PreferenceManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.RecyclerView.Adapter
 import android.view.ViewGroup
 import com.hannesdorfmann.adapterdelegates3.AdapterDelegatesManager
+import com.strongpancakes.quest.data.AddTask
 import com.strongpancakes.quest.data.FeedData
+import com.strongpancakes.quest.data.tasks.OfficeTask
+import com.strongpancakes.quest.utils.addTask
 
 /**
  * Created by Yury Minich on 6/17/17.
  */
-class FeedDataAdapter(var feedData: List<FeedData>) : Adapter<RecyclerView.ViewHolder>() {
+class FeedDataAdapter(val context: Context, var feedData: List<FeedData>) : Adapter<RecyclerView.ViewHolder>() {
     var delegatesManager: AdapterDelegatesManager<List<FeedData>> = AdapterDelegatesManager()
 
     fun updateData(feedData: List<FeedData>) {
-        this.feedData = feedData;
+        this.feedData = feedData
+        notifyDataSetChanged()
+    }
+
+    fun addData(data: FeedData) {
+        val feedList = this.feedData.toMutableList()
+        if (feedList.last() is AddTask) {
+            feedList.add(feedList.lastIndex, data)
+        } else {
+            feedList.add(data)
+        }
+        this.feedData = feedList
         notifyDataSetChanged()
     }
 
     init {
         delegatesManager.addDelegate(TaskAdapterDelegate())
         delegatesManager.addDelegate(FeedNewsAdapterDelegate())
+        delegatesManager.addDelegate(AddTaskDelegate {
+            PreferenceManager.getDefaultSharedPreferences(context).addTask(it)
+            addData(OfficeTask.createUserTask(it))
+        })
     }
 
     override fun getItemCount(): Int {
