@@ -56,7 +56,11 @@ object MockupData : DataSource {
         tasks.add(officeTask2)
         tasks.add(officeTask3)
 
-        return Observable.just(tasks)
+        val list: MutableList<FeedData> = ArrayList()
+        list.addAll(tasks)
+        list.addAll(getNews())
+
+        return Observable.just(list)
     }
 
     override fun getMe(): Observable<User> {
@@ -120,13 +124,13 @@ object MockupData : DataSource {
         return Observable.just(list)
     }
 
-    override fun getNews(): Observable<List<News>> = Observable.just(
+    fun getNews(): ArrayList<FeedData> =
             arrayListOf(
-                News("Hackathon teams 2017. Registration","yesterday at 1:20 PM • updated by Pavel Kaliukhovich • view change"),
-                News("GitLab iTechArt или как организовать работу над проектом Хакатона","Jun 15, 2017 • updated by Iryna Mikrukova • view change"),
-                News("Hackathon teams 2017. Registration","yesterday at 1:20 PM • updated by Pavel Kaliukhovich • view change"),
-                News("Выбор лучшего спикера iTechForum//2017","yesterday at 1:20 PM • updated by Pavel Kaliukhovich • view change"),
-                News("Презентация жюри, критерии оценки проектов и тайминг для защиты проектов Хакатона","Jun 13, 2017 • commented by Andrey Sotnikov")
-        ))
+                    News("Hackathon teams 2017. Registration", "yesterday at 1:20 PM • updated by Pavel Kaliukhovich • view change"),
+                    News("GitLab iTechArt или как организовать работу над проектом Хакатона", "Jun 15, 2017 • updated by Iryna Mikrukova • view change"),
+                    News("Hackathon teams 2017. Registration", "yesterday at 1:20 PM • updated by Pavel Kaliukhovich • view change"),
+                    News("Выбор лучшего спикера iTechForum//2017", "yesterday at 1:20 PM • updated by Pavel Kaliukhovich • view change"),
+                    News("Презентация жюри, критерии оценки проектов и тайминг для защиты проектов Хакатона", "Jun 13, 2017 • commented by Andrey Sotnikov")
+            )
 
 }

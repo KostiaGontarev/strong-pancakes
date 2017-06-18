@@ -12,13 +12,14 @@ import com.strongpancakes.quest.data.FeedData
 class FeedDataAdapter(var feedData: List<FeedData>) : Adapter<RecyclerView.ViewHolder>() {
     var delegatesManager: AdapterDelegatesManager<List<FeedData>> = AdapterDelegatesManager()
 
-    fun updateData(feedData: List<FeedData>){
+    fun updateData(feedData: List<FeedData>) {
         this.feedData = feedData;
         notifyDataSetChanged()
     }
 
     init {
         delegatesManager.addDelegate(TaskAdapterDelegate())
+        delegatesManager.addDelegate(FeedNewsAdapterDelegate())
     }
 
     override fun getItemCount(): Int {
