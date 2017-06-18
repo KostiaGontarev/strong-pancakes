@@ -55,7 +55,7 @@ object MockupData : DataSource {
                 "Test description2", "Выполнено 10.06.2017", 3, false, HashMap<String, String>())
         var officeTask3: OfficeTask = OfficeTask(1, TaskType.TASK_NETWORKING, "Играем в кикер",
                 "Test description3", "Начало 10.06.2017 в 13.30, 9 этаж", 1, false, HashMap<String, String>())
-        val tasks: MutableList<OfficeTask> = ArrayList()
+        val tasks: MutableList<OfficeTask> = mutableListOf()
         tasks.add(officeTask)
         tasks.add(officeTask1)
         tasks.add(officeTask2)
