@@ -7,4 +7,5 @@
 
 
     <color name="progressBackground">#AA000000</color>
+    <color name="color">#80bebebe</color>
 </resources>

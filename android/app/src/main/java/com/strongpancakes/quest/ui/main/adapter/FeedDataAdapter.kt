@@ -34,7 +34,11 @@ class FeedDataAdapter(val context: Context, var feedData: List<FeedData>) : Adap
     }
 
     init {
-        delegatesManager.addDelegate(TaskAdapterDelegate())
+        delegatesManager.addDelegate(TaskAdapterDelegate() {
+            officeTask ->
+            officeTask.isDone = true
+            notifyDataSetChanged()
+        })
         delegatesManager.addDelegate(FeedNewsAdapterDelegate())
         delegatesManager.addDelegate(AddTaskDelegate {
             PreferenceManager.getDefaultSharedPreferences(context).addTask(it)

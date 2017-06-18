@@ -11,7 +11,7 @@ data class OfficeTask(val id: Long, val type: TaskType,
                       val desc: String,
                       val subtitle: String,
                       val exp: Long,
-                      val isDone: Boolean,
+                      var isDone: Boolean,
                       val attachments: Map<String, String>) : FeedData {
     companion object {
         fun createUserTask(title: String): OfficeTask {

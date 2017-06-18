@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import com.strongpancakes.quest.R
 import com.strongpancakes.quest.data.tasks.OfficeTask
 import com.strongpancakes.quest.service.DataSource
-import com.strongpancakes.quest.ui.tasks.adapters.OfficeTaskAdapter
+import com.strongpancakes.quest.ui.main.adapter.FeedDataAdapter
 import com.strongpancakes.quest.utils.RxUtil
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.fragment_office_tasks.*
@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.fragment_office_tasks.*
 class CareerTasksFragment : Fragment() {
 
     lateinit var disposable: Disposable;
-    lateinit var adapter: OfficeTaskAdapter
+    lateinit var adapter: FeedDataAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.fragment_office_tasks, container, false)
@@ -31,9 +31,7 @@ class CareerTasksFragment : Fragment() {
         officeTasks.setHasFixedSize(true)
         officeTasks.layoutManager = LinearLayoutManager(activity)
 
-        adapter = OfficeTaskAdapter(ArrayList()) {
-
-        }
+        adapter = FeedDataAdapter(activity, ArrayList()) 
         officeTasks.adapter = adapter
         getCareerTasks()
     }
